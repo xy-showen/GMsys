@@ -1,0 +1,116 @@
+<html id='login'>
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+  <style>
+
+div#backguound-div{
+    position:fixed;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+    z-index:-1;
+}
+
+div#backguound-div > img {
+    height:100%;
+    width:100%;
+    border:0;
+} 
+
+
+</style>
+  <link rel="stylesheet" href="web/js/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="web/img/ui/index.css">
+  <link rel="stylesheet" href="web/img/skins/mac.css" id="window-skin">
+  <script type="text/javascript" src="web/js/jquery-1.9.1.min.js"></script>
+  <script type="text/javascript" src="web/Atlantis/js/ws/mainWS.js"></script>
+
+  <script type="text/javascript"> 
+
+function newGuid()
+{
+    var guid = "";
+    for (var i = 1; i <= 32; i++){
+      var n = Math.floor(Math.random()*16.0).toString(16);
+      guid +=   n;
+      if((i==8)||(i==12)||(i==16)||(i==20))
+        guid += "-";
+    }
+    return guid;    
+}
+
+
+
+var Guid=newGuid();
+
+function getVerifyImage()
+{
+  document.getElementById("getVerifyImage").src="getVerifyImage?Guid="+Guid;
+}
+
+  $(document).ready(function(){ 
+   document.getElementById('user').focus();
+   document.getElementById("getVerifyImage").src="getVerifyImage?Guid="+Guid;
+   $("#refresh").click(function()
+    {
+       getVerifyImage();
+    });
+    $("#checklogin").click(function(){ 
+        if(document.getElementById('user').value==""
+            ||document.getElementById('password').value=="")
+        {
+         $("#con").html("请输入帐号密码"); 
+         document.getElementById('user').focus();
+         return;
+        }
+        var msg = {
+          "data": {
+            "passWord": document.getElementById('password').value,
+            "userName": document.getElementById('user').value
+          },
+          "url": "/account/login"
+        };
+        $("#loading").html("<img src=web/img/ui/loading_48.gif>");
+        mainWS.send(JSON.stringify(msg));
+        });
+         window.onload = function(){
+                document.body.onkeypress = function(event){
+                    var ee = window.event || event;
+                    if(ee.keyCode==13){
+                       checklogin.click();
+                    }
+                }
+            }
+    });
+</script>
+  <title id="title">Atlantis GMÏµÍ³</title>
+</head>
+
+<body id='body' >
+  <div id="backguound-div">
+    <img src="web/img/wallpaper/wallpaper4.jpg" />
+  </div>
+  <div class="container" style="margin-top:100px">
+    <form action="" method="post" class="well" style="width:420px;margin:0px auto;">
+      <h3 align="center">Atlantis GM管理系统</h3>
+      <br>
+      <div align="center"> <strong id="con" ></strong>
+      </div>
+      <div class="input-group" align="center">
+        <input id="user" type="text" class="form-control" placeholder="Username"></div>
+      <br>
+      <div class="input-group" align="center">
+        <input id="password" type="password" class="form-control" placeholder="PassWord"></div>
+      <br>
+      <div align="center">
+        <img  id="getVerifyImage" style="width:150px">
+        <input  id="VerifyImageCode" type="text" style="width:60px;" placeholder="验证码">
+        <input id="refresh" type="button" value="换一张">
+        <button type="button" id="checklogin" class="btn btn-primary">登录</button>
+      </div>
+    </form>
+  </div>
+  <div id="loading" align="center" ></div>
+</body>
+</html>
