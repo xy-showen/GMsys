@@ -46,7 +46,11 @@ user.statics.login = function(userName, passWord, callback) {
 
 user.statics.addUsers = function() {
 	userM = GMsysServerDB.getModelByName('user');
-	userM.count(function(n) {
+	userM.count(function(err,n) {
+		if(err){
+			console.log('addUsers err:'+err);
+			return;
+		}
 		if (n < 1) {
 			var user1 = new userM({
 				'userName': 'ply1',

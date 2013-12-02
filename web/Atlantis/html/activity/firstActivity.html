@@ -1,276 +1,143 @@
 <!DOCTYPE html>
-
 <html>
-
 <head>
-
 	<title></title>
-
 	<link rel="stylesheet" href="../../../../web/js/bootstrap/css/bootstrap.css">
-
 	<link rel="stylesheet" href="../../../../web/Atlantis/lib/datepicker/css/datepicker.css"></head>
-
 	<script type="text/javascript" src="../../../../web/js/jquery-1.9.1.min.js"></script>
-
 	<script type="text/javascript" src="../../../../web/js/bootstrap/js/bootstrap.js"></script>
-
 	<script type="text/javascript" src="../../../../web/Atlantis/lib/datepicker/js/bootstrap-datepicker.js"></script>
-
 	<script type="text/javascript" src="../../../../web/Atlantis/js/activity/activity1.js"></script>
-
 	<script type="text/javascript">//parent.mainWS.send("---");
-
 		$(document).ready(function(){
-
 			activity1();
-
 		});
-
 	</script>
-
 <body>
-
 	<br>
-
 	<br>
-
 	<br>
-
 	<div class="tabbable tabs-left">
-
 		<ul class="nav nav-tabs">
-
 			<li class="active">
-
 				<a href="#activity1" data-toggle="tab">首次登录赠送</a>
-
 			</li>
-
 			<li class="">
-
 				<a href="#activity2" data-toggle="tab">在线赠送</a>
-
 			</li>
-
 			<li class="">
-
 				<a href="#activity3" data-toggle="tab">首充活动</a>
-
 			</li>
-
 			<li class="">
-
 				<a href="#activity4" data-toggle="tab">邀请好友送好礼</a>
-
 			</li>
-
 			<li class="">
-
 				<a href="#activity5" data-toggle="tab">节日主题活动</a>
-
 			</li>
-
 			<li class="">
-
 				<a href="#activity6" data-toggle="tab">新手任务</a>
-
 			</li>
-
 			<li class="">
-
 				<a href="#activity7" data-toggle="tab">英雄培养</a>
-
 			</li>
-
 			<li class="">
-
 				<a href="#activity8" data-toggle="tab">防守达人</a>
-
 			</li>
-
 			<li class="">
-
 				<a href="#activity9" data-toggle="tab">掠夺达人</a>
-
 			</li>
-
 			<li class="">
-
 				<a href="#activity10" data-toggle="tab">联盟活动</a>
-
 			</li>
-
 			<li class="">
-
 				<a href="#activity11" data-toggle="tab">玩家排位</a>
-
 			</li>
-
 		</ul>
-
 		<div class="tab-content" style="padding-bottom: 9px; border-bottom: 1px solid #ddd;">
-
 			<div class="tab-pane  active" id="activity1">
-
 				<table>
-
 					<tr>
-
 						<td>
-
 							<label>活动定义:</label>
-
 						</td>
-
 						<td>
-
 							<label>登入即可获得,仅限制一个账号一次</label>
-
 						</td>
-
 					</tr>
-
 					<tr>
-
 						<td>
-
 							<label>活动受众:</label>
-
 						</td>
-
 						<td>
-
 							<select style="width:120px;">
-
 								<option>全服</option>
-
 								<option>新玩家</option>
-
 							</select>
-
 						</td>
-
 					</tr>
-
 					<tr>
-
 						<td>
-
 							<label>活动时间:</label>
-
 						</td>
-
 						<td >
-
 							<span> <strong>开始时间:</strong>
-
 							</span>
-
 							<div  class="input-append date" id="startDate1" data-date="2012-10-02-" data-date-format="yyyy-mm-dd">
-
 								<input disabled=true class="span2" size="12"  type="text" value="0000-00-00">
-
 								<span class="add-on"> <i class="icon-th"></i>
-
 								</span>
-
 							</div>
 							&nbsp;
-
 							&nbsp;
 							<span> <strong>结束时间:</strong>
-
 							</span>
-
 							<div  class="input-append date" id="endDate1" data-date="2012-12-02" data-date-format="yyyy-mm-dd">
-
 								<input disabled=true class="span2" size="12" type="text" value="0000-00-00">
-
 								<span class="add-on"> <i class="icon-th"></i>
-
 								</span>
-
 							</div>
-
 							<span>
-
 								<input type="checkbox" value="false">
-
 								<strong>一直持续</strong>
-
 							</span>
-
 						</td>
-
 						<td></td>
-
 					</tr>
-
 					<tr>
-
 						<td>
-
 							<label>活动触发条件:</label>
-
 						</td>
-
 						<td>
-
 							<select style="width:120px;">
-
 								<option>登录即可</option>
-
 								<option>首次充值</option>
-
 							</select>
-
 						</td>
-
 					</tr>
-
 					<tr>
-
 						<td>
-
 							<label>活动奖励:</label>
-
 						</td>
-
 						<td id='activity1-t'></td>
-
 					</tr>
-
 				</table>
-
 			</div>
-
 			<div class="tab-pane" id="activity2">
-
 				<p>Howdy, I'm in Section 2.</p>
-
 			</div>
-
 			<div class="tab-pane" id="activity3">
-
 				<p>What up girl, this is Section 3.</p>
-
 			</div>
-
 		</div>
-
 	</div>
 
 	<script type="text/javascript">
 
 	$('#startDate1').datepicker().on('changeDate',function(ev){
 
-
-
 	});
 
     $('#endDate1').datepicker().on('changeDate',function(ev){
-
-
 
 	});
 

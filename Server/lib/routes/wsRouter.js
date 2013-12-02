@@ -1,3 +1,6 @@
+/**
+ * @author showen
+ */
 var Account=require('../controllers/account/account.js');
 
 module.exports={

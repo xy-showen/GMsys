@@ -106,7 +106,7 @@ HROS.base = (function(){
 		},
 		logout : function(){
 			
-					location.href = 'login.php';
+					location.href = './login';
 			
 		},
 		resize : function(){

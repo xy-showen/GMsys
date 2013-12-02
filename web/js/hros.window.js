@@ -52,7 +52,7 @@ HROS.window = (function(){
 						'url' : options.url,
 						'imgsrc' : options.imgsrc,
 						'isresize' : options.isresize,
-						'isopenmax' : options.isopenmax,
+						'isopenmax' : options.isopenmax,//是否最大化
 						'istitlebar' : options.isresize,
 						'istitlebarFullscreen' : options.isresize ? window.fullScreenApi.supportsFullScreen == true ? true : false : false,
 						'issetbar' : options.issetbar,
@@ -142,10 +142,10 @@ HROS.window = (function(){
 							HROS.taskbar.resize();
 							//新增窗口
 							TEMP.windowTemp = {
-								'width' : $(window).width(),//options.width,
-								'height' :$(window).height(),//options.height,
-								'top' : 0,//top,
-								'left' : 0,//left,
+								'width' : options.width,//$(window).width()
+								'height' :options.height,//$(window).height()
+								'top' : top,//0
+								'left' :left,//0
 								'emptyW' : $(window).width() - options.width,
 								'emptyH' : $(window).height() - options.height,
 								'zIndex' : HROS.CONFIG.createIndexid,
@@ -204,7 +204,7 @@ HROS.window = (function(){
 						width : obj.attr('width'),
 						height : obj.attr('height'),
 						isresize : true,
-						isopenmax : false,
+						isopenmax : true,//false
 						issetbar : true,
 						isflash : obj.attr('isflash') == 'true' ? true:false
 					});
@@ -307,9 +307,9 @@ HROS.window = (function(){
 						id : '1',
 						appid : '2',
 						realappid : '1',
-						title : '秦美人后台',
+						title : '',
 						
-						url : 'http://qmrht.moloong.com',
+						url : '',
 						width : 1024,
 						height : 768,
 						isresize : true,

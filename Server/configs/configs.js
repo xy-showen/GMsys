@@ -1,3 +1,6 @@
+/**
+ * @author showen
+ */
 module.exports={
 GMsysServerDB_url:"mongodb://192.168.2.198/GMsys",
 GameServerDB_url:"mongodb://192.168.2.198/tt_gameServer",

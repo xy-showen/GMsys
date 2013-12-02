@@ -1,3 +1,6 @@
+/**
+ * @author showen
+ */
 exports.types = {
 
   "css": "text/css",

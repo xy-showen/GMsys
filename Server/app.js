@@ -1,3 +1,6 @@
+/**
+ * @author showen
+ */
 var http = require('http'),
 	url = require("url"),
 	configs = require("./configs/configs.js"),
@@ -50,6 +53,7 @@ GMsysWSServer.on("connection", function(client) {
 		try {
 			var req = JSON.parse(message);
 		} catch (err) {
+			console.log('illegal format');
 			client.close(4001, 'illegal format');
 			return;
 		}
@@ -75,4 +79,12 @@ GMsysWSServer.on("connection", function(client) {
 			}
 		}
 	});
+
+	client.on('close',function(code,message){
+		if(session.userName){
+			console.log(session.userName+" has quit");
+			delete global.clients[session.userName];
+		}
+	});
 });
+
